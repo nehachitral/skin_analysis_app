@@ -1,0 +1,30 @@
+name: skin_analysis_app
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6       # Cupertino icons for iOS
+  camera: ^0.10.1+1             # For capturing photos from the camera
+  path_provider: ^2.0.11         # For accessing device file storage
+  image_picker: ^1.1.2           # For picking images from the gallery
+  tflite: ^1.1.2                 # TensorFlow Lite integration
+  permission_handler: ^11.3.1    # For handling permissions
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0          # Recommended linting package
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/model.tflite
+    - assets/labels.txt
+

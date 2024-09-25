@@ -1,0 +1,20 @@
+import tensorflow as tf
+
+# Define your model (this is just an example)
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Flatten(input_shape=(28, 28)),
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])
+
+# Compile and train your model
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+# model.fit(train_images, train_labels, epochs=5)  # Example training
+
+# Convert the model to TensorFlow Lite
+converter = tf.lite.TFLiteConverter.from_keras_model(model)
+tflite_model = converter.convert()
+
+# Save the model to a file
+with open('model.tflite', 'wb') as f:
+    f.write(tflite_model)
